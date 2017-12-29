@@ -31,14 +31,36 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Wrkday_Demo1</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">158.7 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">Wrkday_Demo1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">136.8 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr><th colspan="4">Wrkday_Demo1 &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="1">employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress</td><td><a href="#m1"><b>changePrimaryAddress</b>  </a></td><td class="numi">1</td><td>1514370088848</td><td class="numi">132893</td></tr>
+<tr><th colspan="4">Wrkday_Demo1 &#8212; failed (configuration methods)</th></tr>
+<tr class="failedodd"><td rowspan="1">employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress</td><td><a href="#m1"><b>oneTearDown</b>  </a></td><td class="numi">1</td><td>1514540759074</td><td class="numi">0</td></tr>
+<tr><th colspan="4">Wrkday_Demo1 &#8212; failed</th></tr>
+<tr class="failedodd"><td rowspan="1">employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress</td><td><a href="#m2"><b>changePrimaryAddress</b>  </a></td><td class="numi">1</td><td>1514540644051</td><td class="numi">114970</td></tr>
 </table>
 <h1>Wrkday_Demo1</h1>
-<h2 id="m1">employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress:changePrimaryAddress</h2>
+<h2 id="m1">employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress:oneTearDown</h2>
+<div style="padding-left:3em">
+<p>Fail</p>
+com.thoughtworks.selenium.SeleneseTestBase.fail(SeleneseTestBase.java:393)
+<br/>at com.arsin.ArsinSeleniumAPI.stopSeleniumRunningLocally(ArsinSeleniumAPI.java:2861)
+<br/>at com.arsin.ArsinSeleniumAPI.stopSelenium(ArsinSeleniumAPI.java:2665)
+<br/>at employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress.oneTearDown(Workday_ChangeEmployeeContactInformation_Primaryaddress.java:147)
+<br/>28 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m2">employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress:changePrimaryAddress</h2>
+<div style="padding-left:3em">
+<p>command:waitForElementPresent||description:Expected element is not found||Fail</p>
+com.thoughtworks.selenium.SeleneseTestBase.fail(SeleneseTestBase.java:393)
+<br/>at com.arsin.ArsinSeleniumAPI.reportStepDtlsWithScreenshot(ArsinSeleniumAPI.java:3009)
+<br/>at com.arsin.ArsinSeleniumAPI.reportException(ArsinSeleniumAPI.java:2185)
+<br/>at com.arsin.ArsinSeleniumAPI.effecta(ArsinSeleniumAPI.java:1562)
+<br/>at wrkday_pom.Empprofilepg.verifyEmployeeNameOnProfilePage(Empprofilepg.java:30)
+<br/>at employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress.changePrimaryAddress(Workday_ChangeEmployeeContactInformation_Primaryaddress.java:89)
+<br/>28 lines not shown
+</div>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>
