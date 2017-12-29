@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<suite name="Wrkday_Demo1" thread-count="1">
+
+       <parameter name="prjName" value="Wrkday_Demo1"></parameter>
+      <parameter name="instanceName" value="stage"></parameter>
+      <parameter name="sauceUser" value="Local"></parameter>
+      <parameter name="testSetName" value="Cycle1"></parameter>
+      <test name="Wrkday_Demo1" preserve-order="true">
+	  
+	  <listeners>
+		  <listener class-name="reporting.CustomReporting"></listener>
+	  </listeners>
+	  
+      <parameter name="moduleName" value="Cycle1"></parameter>
+	<parameter name="testEnvironment" value="employee_tests.Workday_ChangeEmployeeVeteranStatus=Windows 7||Internet Explorer"> </parameter> 
+    
+      <classes>
+	      <class name="employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress"/>
+	 <!--     <class name="employee_tests.Workday_ChangeEmployeeVeteranStatus"/>
+	        <class name="manager_tests.Workday_ManagerActions_ChangeEmployeeWorkLocation"/>
+	         <class name="manager_tests.Wrkday_ManagerActions_VoluntaryTermination"/>  -->
+      </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

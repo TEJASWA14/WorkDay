@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<suite name="WorkDay" thread-count="1">
+     
+      <parameter name="prjName" value="Wrkday_Demo1"></parameter>
+      
+      <parameter name="instanceName" value="stage"></parameter>
+      <parameter name="sauceUser" value="Local"></parameter>
+      <parameter name="testSetName" value="TestSet"></parameter>
+      <parameter name="moduleName" value="workday"></parameter>
+	   <test name="workday" preserve-order="true">
+	   
+		<listeners>
+		  <listener class-name="reporting.CustomReporting"></listener>
+		</listeners>
+	   
+	   <parameter name="testEnvironment" value="manager_tests.Wrkday_ManagerActions_ChngEmpWrkLoc=Windows 7||Chrome,manager_tests.Wrkday_ManagerActions_VolunTermCommut=Windows 7||Chrome"></parameter>
+	   
+    <classes>
+      <class name="manager_tests.Workday_ManagerActions_ChangeEmployeeWorkLocation"/>
+      <class name="manager_tests.Wrkday_ManagerActions_VoluntaryTermination"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

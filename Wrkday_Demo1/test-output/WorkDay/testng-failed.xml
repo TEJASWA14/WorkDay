@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [WorkDay]">
+  <parameter name="testSetName" value="TestSet"/>
+  <parameter name="prjName" value="Wrkday_Demo1"/>
+  <parameter name="instanceName" value="stage"/>
+  <parameter name="moduleName" value="workday"/>
+  <parameter name="testEnvironment" value="manager_tests.Wrkday_ManagerActions_ChngEmpWrkLoc=Windows 7||Chrome,manager_tests.Wrkday_ManagerActions_VolunTermCommut=Windows 7||Chrome"/>
+  <parameter name="sauceUser" value="Local"/>
+  <listeners>
+    <listener class-name="reporting.CustomReporting"/>
+  </listeners>
+  <test name="workday(failed)">
+    <parameter name="testEnvironment" value="manager_tests.Wrkday_ManagerActions_ChngEmpWrkLoc=Windows 7||Chrome,manager_tests.Wrkday_ManagerActions_VolunTermCommut=Windows 7||Chrome"/>
+    <classes>
+      <class name="manager_tests.Workday_ManagerActions_ChangeEmployeeWorkLocation">
+        <methods>
+          <include name="ChangeEmployeeWorkLocation"/>
+          <include name="oneTimeSetUp"/>
+        </methods>
+      </class> <!-- manager_tests.Workday_ManagerActions_ChangeEmployeeWorkLocation -->
+      <class name="manager_tests.Wrkday_ManagerActions_VoluntaryTermination">
+        <methods>
+          <include name="oneTimeSetUp"/>
+          <include name="VoluntaryTerminate"/>
+        </methods>
+      </class> <!-- manager_tests.Wrkday_ManagerActions_VoluntaryTermination -->
+    </classes>
+  </test> <!-- workday(failed) -->
+</suite> <!-- Failed suite [WorkDay] -->

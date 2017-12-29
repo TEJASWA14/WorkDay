@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="manager_tests.Workday_ManagerActions_ChangeEmployeeWorkLocation">
+        <methods>
+          <include name="closebrowser"/>
+          <include name="ChangeEmployeeWorkLocation"/>
+          <include name="oneTimeSetUp"/>
+        </methods>
+      </class> <!-- manager_tests.Workday_ManagerActions_ChangeEmployeeWorkLocation -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

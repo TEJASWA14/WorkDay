@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [Wrkday_Demo1]">
+  <parameter name="testSetName" value="Cycle1"/>
+  <parameter name="prjName" value="Wrkday_Demo1"/>
+  <parameter name="instanceName" value="stage"/>
+  <parameter name="moduleName" value="Cycle1"/>
+  <parameter name="testEnvironment" value="employee_tests.Workday_ChangeEmployeeVeteranStatus=Windows 7||Internet Explorer"/>
+  <parameter name="sauceUser" value="Local"/>
+  <listeners>
+    <listener class-name="reporting.CustomReporting"/>
+  </listeners>
+  <test name="Wrkday_Demo1(failed)">
+    <parameter name="moduleName" value="Cycle1"/>
+    <parameter name="testEnvironment" value="employee_tests.Workday_ChangeEmployeeVeteranStatus=Windows 7||Internet Explorer"/>
+    <classes>
+      <class name="employee_tests.Workday_ChangeEmployeeVeteranStatus">
+        <methods>
+          <include name="oneTimeSetUp"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- employee_tests.Workday_ChangeEmployeeVeteranStatus -->
+      <class name="manager_tests.Wrkday_ManagerActions_VoluntaryTermination">
+        <methods>
+          <include name="oneTimeSetUp"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- manager_tests.Wrkday_ManagerActions_VoluntaryTermination -->
+      <class name="employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress">
+        <methods>
+          <include name="oneTearDown"/>
+          <include name="oneTimeSetUp"/>
+        </methods>
+      </class> <!-- employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress -->
+      <class name="manager_tests.Workday_ManagerActions_ChangeEmployeeWorkLocation">
+        <methods>
+          <include name="closebrowser"/>
+          <include name="ChangeEmployeeWorkLocation"/>
+          <include name="oneTimeSetUp"/>
+        </methods>
+      </class> <!-- manager_tests.Workday_ManagerActions_ChangeEmployeeWorkLocation -->
+    </classes>
+  </test> <!-- Wrkday_Demo1(failed) -->
+</suite> <!-- Failed suite [Wrkday_Demo1] -->

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress">
+        <methods>
+          <include name="changePrimaryAddress"/>
+        </methods>
+      </class> <!-- employee_tests.Workday_ChangeEmployeeContactInformation_Primaryaddress -->
+      <class name="employee_tests.Workday_ChangeEmployeeVeteranStatus">
+        <methods>
+          <include name="changeVeteranStatus"/>
+        </methods>
+      </class> <!-- employee_tests.Workday_ChangeEmployeeVeteranStatus -->
+      <class name="manager_tests.Workday_ManagerActions_ChangeEmployeeWorkLocation">
+        <methods>
+          <include name="ChangeEmployeeWorkLocation"/>
+        </methods>
+      </class> <!-- manager_tests.Workday_ManagerActions_ChangeEmployeeWorkLocation -->
+      <class name="manager_tests.Wrkday_ManagerActions_VoluntaryTermination">
+        <methods>
+          <include name="VoluntaryTerminate"/>
+        </methods>
+      </class> <!-- manager_tests.Wrkday_ManagerActions_VoluntaryTermination -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
