@@ -1,4 +1,5 @@
 package manager_tests;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.annotations.Test;
@@ -6,7 +7,10 @@ import org.testng.annotations.Test;
 import com.arsin.ArsinSeleniumAPI;
 
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 
 import wrkday_pom.Emphomepg;
@@ -21,27 +25,31 @@ public class Workday_ManagerActions_ChangeEmployeeWorkLocation_MultipleReports {
 	ArsinSeleniumAPI oASelFW = null;
 	@Parameters({ "prjName", "testEnvironment","instanceName","sauceUser","moduleName","testSetName"})
 	
-	@Test
-    public void ChangeEmployeeWorkLocation(String prjName,String testEnvironment,String instanceName,String sauceUser,String moduleName,String testSetName) throws Exception
+	
+	@BeforeMethod
+	public void oneTimeSetUp(String prjName,String testEnvironment,String instanceName,String sauceUser,String moduleName,String testSetName) throws InterruptedException 
+	{
+	    String[] environment=new ArsinSeleniumAPI().getEnvironment(testEnvironment,this.getClass().getName());	
+		String os=environment[0];
+	    String browser=environment[1];
+	    String testCasename=this.getClass().getSimpleName();	
+		oASelFW = new ArsinSeleniumAPI(prjName,testCasename,browser,os,instanceName,sauceUser,moduleName,testSetName);
+		oASelFW.startSelenium(oASelFW.getURL("WEB_URL_ADMIN",oASelFW.instanceName));
+	}
+	@Test(dataProvider = "iteration",alwaysRun=true)
+    public void ChangeEmployeeWorkLocation(int rownum) throws Exception
     {	
 		TestData tData 	= new TestData();
 		Utility util	= new Utility();
 		
 		String filePath     = System.getProperty("user.dir")+"\\Data\\WorkDayTestData.xls";
         String sheet        = "WorkDay_Datasheet";
-        
+       /* 
     	int totalRows		 = tData.getRowCount(filePath,sheet);
-    	System.out.println("totalRows"+totalRows);
+    	System.out.println("totalRows"+totalRows);*/
     	
-		for(int rownum = 2; rownum<=totalRows;rownum++){	
-				
-			String[] environment=new ArsinSeleniumAPI().getEnvironment(testEnvironment,this.getClass().getName());	
-			String os=environment[0];
-		    String browser=environment[1];
-		    String testCasename=this.getClass().getSimpleName();	
-			oASelFW = new ArsinSeleniumAPI(prjName,testCasename,browser,os,instanceName,sauceUser,moduleName,testSetName);
-			oASelFW.startSelenium(oASelFW.getURL("WEB_URL_ADMIN",oASelFW.instanceName));
-			
+		//for(int rownum = 2; rownum<=totalRows;rownum++){	
+    	//int rownum = 2;	
 			System.out.println("data rowCount "+rownum );
 			String mgr_id		 = tData.getCellData(filePath, sheet, "Salary Mgr Id", rownum);
 			String pswd			 = tData.getCellData(filePath, sheet, "Mgr Password", rownum);
@@ -77,20 +85,43 @@ public class Workday_ManagerActions_ChangeEmployeeWorkLocation_MultipleReports {
 	    	oempprf.clickHomePageIcon();
 	    	
 	    	//Click on "My Team Management" icon
-	    	oemp.clkOptionsAtHomeScreen("My Team Management");
+	    	//oemp.clkOptionsAtHomeScreen("My Team Management");
 	    	
 	    	//Click Transfer Promote or Change Job
-	    	Mgrprofilepg oMgr = new Mgrprofilepg(oASelFW);
-	    	oMgr.click_Transfer_Promote_ChangeJob();
+	    //	Mgrprofilepg oMgr = new Mgrprofilepg(oASelFW);
+	    //	oMgr.click_Transfer_Promote_ChangeJob();
 	    	
 	    	//Change the location
-	    	oMgr.changeLocation(empName, "Atlanta, GA, USA - #2 National Data Plz NE");
+	    //	oMgr.changeLocation(empName, "Atlanta, GA, USA - #2 National Data Plz NE");
 
 	    	//Sign Out
 	    	oemp.clkSgnout();
-	    	
-	    	oASelFW.stopSelenium();
 	    	Thread.sleep(2000);
-		}
+	    	oASelFW.stopSelenium();
+		//}
     }
+	
+	/* @AfterMethod
+		public void closebrowser()
+		{
+			oASelFW.stopSelenium();
+		}*/
+	 
+	 @DataProvider(name="iteration")
+	 public Object[][] iteration() throws IOException{
+		 TestData tData 	= new TestData();
+		 String filePath    = System.getProperty("user.dir")+"\\Data\\WorkDayTestData.xls";
+	     String sheet       = "WorkDay_Datasheet";
+		 int rowNum 		= tData.getRowCount(filePath,sheet);
+		 Object [][] sData	=new Object[rowNum-1][1];
+		 for(int i=0;i<rowNum-1;i++){
+			 sData[i][0] = i+2;
+			 System.out.println("sData[i][0]=="+sData[i][0]);
+		 }
+		 return sData;
+	 }
+	 
+	 
+	 
+
 }
